@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js"
+    "start": "nodemon ./index.js",
+    "release": "node ./release.js"
   },
   "bin": {
     "my-vite": "./bin/index.js"
@@ -19,5 +20,11 @@
     "koa-static": "^5.0.0",
     "magic-string": "^0.26.2",
     "vue": "3.2.0"
+  },
+  "devDependencies": {
+    "chalk": "4.0.0",
+    "enquirer": "^2.3.6",
+    "execa": "5.0.0",
+    "log-symbols": "^5.1.0"
   }
 }
