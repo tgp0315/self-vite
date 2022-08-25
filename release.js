@@ -1,6 +1,5 @@
 /* eslint-disable import/dynamic-import-chunkname */
 const chalk = require('chalk')
-console.log(chalk, 'chalk')
 const child = require('child_process')
 const symbols = import('log-symbols')
 const { prompt } = require('enquirer')
