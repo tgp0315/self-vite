@@ -1,6 +1,9 @@
 const fs = require('fs')
 const path = require('path')
 const { rewriteImports } = require('../utils/index.js')
+const aliasResolver = require('./aliasResolve')
+const viteConfig = require(path.join(process.cwd(), 'vite.config.js'))
+console.log(viteConfig, 'viteConfig')
 // console.log(readBody, rewriteImports, 'readBody, rewriteImports')
 /**
  * @description
@@ -20,7 +23,9 @@ function moduleRewritePlugin({app, root}) {
       const p = path.join(root, url.slice(1))
       ctx.type = 'application/javascript'
       const content = fs.readFileSync(p, 'utf-8')
-      ctx.body = rewriteImports(content) 
+      const lastResult = aliasResolver(viteConfig.resolve.alias, content)
+      console.log(lastResult, 'lastResult')
+      ctx.body = rewriteImports(lastResult) 
     }
   })
 }
